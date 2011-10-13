@@ -3,7 +3,7 @@
 HOST=`hostname`
 
 DM=`date +%d\ %B`
-YYMMDD=`date +%Y-%M-%d`
+YYMMDD=`date +%Y-%m-%d`
 HHMM=`date +%H%M`
 
 aide --check > /var/log/aide/check-$YYMMDD\_$HHMM.txt
