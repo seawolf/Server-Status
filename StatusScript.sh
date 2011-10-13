@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST=`cat /etc/hostname`
+HOST=`hostname`
 
 DM=`date +%d\ %B`
 YYMMDD=`date +%Y-%M-%d`
