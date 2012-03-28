@@ -8,4 +8,7 @@ YYMMDD=`date +%Y-%m-%d`
 HHMM=`date +%H%M`
 
 /usr/sbin/aide --check >> /var/log/aide/check-$YYMMDD\_$HHMM.txt
-cat /var/log/aide/check-$YYMMDD\_$HHMM.txt | /bin/mail -s "AIDE Report for $HOST - $DM " $WEBMASTER
+
+for EMAIL in $WEBMASTER; do
+  cat /var/log/aide/check-$YYMMDD\_$HHMM.txt | /bin/mail -s "AIDE Report for $HOST - $DM " $EMAIL
+done
