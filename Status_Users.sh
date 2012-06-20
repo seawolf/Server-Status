@@ -2,7 +2,7 @@
 . Setup_Status.sh
 
 ALL_LOGINS=`last | sed 's/  / /g'`
-DATE_YESTERDAY=`date --date=yesterday +"%a %B %e"`
+DATE_YESTERDAY=`date --date=yesterday +"%a %b %e"`
 YESTERDAYS_LOGINS=`echo "$ALL_LOGINS" | grep "$DATE_YESTERDAY" `
 USERS=`echo "$YESTERDAYS_LOGINS" |  awk '{print $1}' | uniq`
 
