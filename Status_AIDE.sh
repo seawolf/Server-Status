@@ -4,7 +4,7 @@ DIR="$( dirname "$0" )"
 
 FILE="/var/log/aide/check-$YYMMDD-$HHMM.txt"
 
-aide --check >> $FILE
+aide --config=/etc/aide/aide.conf --check >> $FILE
 
 for EMAIL in $WEBMASTER; do
   cat $FILE | mail -s "AIDE Report for $HOST - $DM " $EMAIL && rm $FILE
