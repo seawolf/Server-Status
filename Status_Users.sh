@@ -1,5 +1,6 @@
 #!/bin/bash
-. Setup_Status.sh
+DIR="$( dirname "$0" )"
+. $DIR/Setup_Status.sh
 
 ALL_LOGINS=`last | sed 's/  / /g'`
 DATE_YESTERDAY=`date --date=yesterday +"%a %b %e"`

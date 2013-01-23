@@ -1,5 +1,6 @@
 #!/bin/bash
-. Setup_Status.sh
+DIR="$( dirname "$0" )"
+. $DIR/Setup_Status.sh
 
 DF="`df -h`"
 
