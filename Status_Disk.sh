@@ -5,5 +5,5 @@ DIR="$( dirname "$0" )"
 DF="`df -h`"
 
 for EMAIL in $WEBMASTER; do
-  echo "$DF" | /bin/mail -s "Disk Usage Report for $HOST - $DM " $EMAIL
+  echo -e "$DF" | mail -s "Disk Usage Report for $HOST - $DM " $EMAIL
 done

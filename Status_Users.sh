@@ -4,17 +4,16 @@ DIR="$( dirname "$0" )"
 
 ALL_LOGINS=`last | sed 's/  / /g'`
 DATE_YESTERDAY=`date --date=yesterday +"%a %b %e"`
-YESTERDAYS_LOGINS=`echo "$ALL_LOGINS" | grep "$DATE_YESTERDAY" `
-USERS=`echo "$YESTERDAYS_LOGINS" |  awk '{print $1}' | uniq`
+YESTERDAYS_LOGINS=`echo -e "$ALL_LOGINS" | grep "$DATE_YESTERDAY" `
+USERS=`echo -e "$YESTERDAYS_LOGINS" |  awk '{print $1}' | uniq`
 
 LOG="The following login sessions were created on $DATE_YESTERDAY:"
 
 for USER in $USERS; do
-  LOGINS=`echo "$YESTERDAYS_LOGINS" | grep "$USER" | wc -l`
-  LOG="$LOG
-  $USER: $LOGINS"
+  LOGINS=`echo -e "$YESTERDAYS_LOGINS" | grep "$USER" | wc -l`
+  LOG+="\n\t$USER: $LOGINS"
 done
 
 for EMAIL in $WEBMASTER; do
-  echo "$LOG" | /bin/mail -s "User Access Report for $HOST - $DM " $EMAIL
+  echo -e "$LOG" | mail -s "User Access Report for $HOST - $DM " $EMAIL
 done
