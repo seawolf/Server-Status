@@ -2,7 +2,7 @@
 DIR="$( dirname "$0" )"
 . $DIR/Setup_Status.sh
 
-FILE="/var/log/aide/check-$YYMMDD\_$HHMM.txt"
+FILE="/var/log/aide/check-$YYMMDD-$HHMM.txt"
 
 aide --check >> $FILE
 
