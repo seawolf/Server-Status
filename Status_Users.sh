@@ -2,7 +2,7 @@
 DIR="$( dirname "$0" )"
 . $DIR/Setup_Status.sh
 
-ALL_LOGINS=`last | sed 's/  / /g'`
+ALL_LOGINS=`last`
 DATE_YESTERDAY=`date --date=yesterday +"%a %b %e"`
 YESTERDAYS_LOGINS=`echo -e "$ALL_LOGINS" | grep "$DATE_YESTERDAY" `
 USERS=`echo -e "$YESTERDAYS_LOGINS" |  awk '{print $1}' | uniq`
